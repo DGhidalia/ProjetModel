@@ -5,6 +5,8 @@
  */
 package modélisation;
 
+import message.message;
+
 /**
  *
  * @author dg738399
@@ -16,6 +18,8 @@ public class Modélisation {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        message m = new message(53);
+        System.out.println(m.toString());
     }
     
 }
