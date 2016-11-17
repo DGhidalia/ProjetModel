@@ -6,6 +6,7 @@
 package modélisation;
 
 import message.message;
+import découpage.méthode;
 
 /**
  *
@@ -18,8 +19,9 @@ public class Modélisation {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        message m = new message(53);
-        System.out.println(m.toString());
+        message m = new message(64);
+        méthode mt = new méthode(m);
+        mt.SplitMessage();
     }
     
 }

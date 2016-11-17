@@ -5,16 +5,31 @@
  */
 package découpage;
 
+import message.message;
+
 /**
  *
  * @author dg738399
  */
 public class méthode {
     
-    private int _secret;
+    private message _secret;
     
-    public méthode(int secret){
+    public méthode(message secret){
         this._secret = secret;
+    }
+    
+    public void SplitMessage(){
+        int j;
+        int i = _secret.ConvertToTab().length /2;
+        int prem[] = new int[i];
+        int deuse[] = new int[i];
+        for(j=0;j<i;j++){
+            prem[j]= _secret.ConvertToTab()[j];
+        }
+        for(j=i;j<i*2;j++){
+            deuse[j-i] = _secret.ConvertToTab()[j];
+        }
     }
     
     //public 

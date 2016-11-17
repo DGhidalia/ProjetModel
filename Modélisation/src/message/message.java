@@ -18,16 +18,32 @@ public class message {
         _message = message;
     }
     
-    public void convertToByte(){
-        Integer.toBinaryString(_message);
+    public String ConvertToBinary(){
+        String res = Integer.toBinaryString(_message);
+        if(res.length() % 2 != 0){
+            res = "0"+res;
+        }
+        return res;
+    }
+    
+    public int[] ConvertToTab(){
+        /*System.out.println(ConvertToBinary().getBytes());
+        return ConvertToBinary().getBytes();*/
+        String toConvert = ConvertToBinary();
+        int res[] = new int[toConvert.length()];
+        for(int i = 0;i<toConvert.length();i++){
+            if(toConvert.charAt(i)== '0'){
+                res[i]=0;
+            }
+            else if(toConvert.charAt(i)=='1'){
+                res[i]=1;
+            }
+        }
+        return res;
     }
     
     @Override
     public String toString(){
-        /*String res = "";
-        for(byte b : convertToByte()){
-            res += b;
-        }*/
-        return Integer.toBinaryString(_message);
+        return ConvertToBinary();
     }
 }
