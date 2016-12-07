@@ -13,22 +13,22 @@ import java.nio.ByteBuffer;
  */
 public class message {
     private int _message;
+    private int _nbPersonnes;
     
-    public message(int message){
+    public message(int message,int nb){
         _message = message;
+        _nbPersonnes = nb;
     }
     
     public String ConvertToBinary(){
         String res = Integer.toBinaryString(_message);
-        if(res.length() % 2 != 0){
+        while(res.length() % (_nbPersonnes*2) != 0){
             res = "0"+res;
         }
         return res;
     }
     
     public int[] ConvertToTab(){
-        /*System.out.println(ConvertToBinary().getBytes());
-        return ConvertToBinary().getBytes();*/
         String toConvert = ConvertToBinary();
         int res[] = new int[toConvert.length()];
         for(int i = 0;i<toConvert.length();i++){
@@ -45,5 +45,9 @@ public class message {
     @Override
     public String toString(){
         return ConvertToBinary();
+    }
+    
+    public int getNbPers(){
+        return this._nbPersonnes;
     }
 }

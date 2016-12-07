@@ -22,7 +22,7 @@ public class méthode {
     
     public int[][] SplitMessage(){
         int j;
-        int i = _secret.ConvertToTab().length /2;
+        int i = _secret.ConvertToTab().length /this._secret.getNbPers();
         int prem[] = new int[i];
         int deuse[] = new int[i];
         for(j=0;j<i;j++){
@@ -104,5 +104,34 @@ public class méthode {
     
     public int[] getSecret(){
         return this._secret.ConvertToTab();
+    }
+    
+    
+    //-- Prolongement 1 ----------------------------------------------
+    
+    public int[][] ProlongSplitMessage(){
+        int i = this._secret.ConvertToTab().length/(this._secret.getNbPers()*2);
+        int[][] tabSecret = new int[this._secret.getNbPers()*2][i];    
+        boolean end = false;
+        int nb = 0;
+        int c;
+        int k = this._secret.ConvertToTab().length/i;
+        
+        while(nb<k){
+            int[] t = new int[i];
+            c=0;
+            for(int j = nb*2; j<i+(nb*2);j++){
+                t[c] = this._secret.ConvertToTab()[j];
+                c++;
+            }
+            tabSecret[nb] = t;
+            nb++;
+        }
+        return tabSecret;
+    }
+    
+    public void ProlongGiveSecret(){
+        int i = this._secret.ConvertToTab().length/(this._secret.getNbPers()*2);
+        int[][] secret = this.ProlongSplitMessage();
     }
 }

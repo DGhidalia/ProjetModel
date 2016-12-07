@@ -19,16 +19,17 @@ public class Modélisation {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        message m = new message(52);
+        message m = new message(65536,5);
         méthode mt = new méthode(m);
-        mt.GiveSecret();
+        mt.ProlongSplitMessage();
+        /*mt.GiveSecret();
         int[] prop = mt.AskSecret();
         if(mt.EgalTab(prop, mt.getSecret())){
             System.out.println("Vous avez trouvé");
         }
         else{
             System.out.println("erreur!");
-        }
+        }*/
     }
     
 }
